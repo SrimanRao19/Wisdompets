@@ -1,0 +1,24 @@
+This is a basic Django project that has been built out of interest to get hands on with Django.I hope that this will be a full fledged website and
+would be of help to our pets and I am working towards this goal.
+Project Details:
+Inside of the wisdompets folder, there's a file called manage.py. Beside it, there's an inner wisdompets folder that contains four files. 
+These are _init_, settings, URLs, and WSGI I use the manage.py file to run various commands for my project. 
+The _init_ file tells Python that this folder contains Python files.
+inside of the wisdompets folder, there's a file called manage.py.
+The WSGI, or wuzgi, file, provides a hook for web servers, such as Apache or Nginx. 
+The settings file configures Django, the urls file routes requests based on the URL.
+ While there are five files that the script generated, I suggest you to not edit the first three. 
+The last two files, settings and urls, I use them to configure Django and to set up how our URL routing is done.
+When a Django application receives a web request, it uses the URL patterns to decide which view to pass the request to for handling. In our project, the URL patterns will be defined in a wisdompets/urls.py. Views provide the logic, or control flow portion of the project. A view is a Python callable such as a function that takes an HTTP request as an argument and returns an HTTP response. Our views will be defined at adoptions/views.py.
+
+To perform queries against the database, each view can leverage Django models as needed.
+I defined my models for the adoptions app in adoptions/models.py. 
+A Django model is a class with attributes that define the schema or underlying structure of a database table. 
+These classes will provide built in methods for making queries on the associated tables. 
+Each view  that has been defined can also leverage templates which help with the presentation layer of what the HTML response will look like. 
+Each template is a separate file that consists of HTML along with some extra template syntax for variables, loops, and other control flow.
+My template files will be placed in a folder called templates that we will create inside of the adoptions folder.
+Given this overall structure,  the control flow is created in our adoptions app. 
+If a request comes into Django with the root path of just a slash, Django will first look at the URL patterns to find what view it should use. 
+The URL patterns will route the route path to the function in adoptions/views.py called home. This home 
+function will take the request as an argument and it will first make any database calls that are needed using the models defined in adoptions/models.py.
